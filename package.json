@@ -1,0 +1,42 @@
+{
+  "name": "valorant-stats-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Valorant statistics tracking using Tracker.gg API",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "test": "jest",
+    "docker:build": "docker build -t valorant-stats-bot .",
+    "docker:run": "docker run --env-file .env -p 3000:3000 valorant-stats-bot"
+  },
+  "keywords": ["discord", "bot", "valorant", "stats", "tracker.gg"],
+  "author": "IN3PIRE",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "axios": "^1.7.2",
+    "@tracker.gg/sdk": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "redis": "^4.6.14",
+    "node-cron": "^3.0.3",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/node-cron": "^3.0.11",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "tsx": "^4.15.6",
+    "typescript": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
