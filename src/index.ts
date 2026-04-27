@@ -1,6 +1,7 @@
 import { Client, Collection, Events, GatewayIntentBits, Interaction, REST, Routes } from "discord.js";
 import logger from "./logger";
 import { CONFIG } from "./config";
+import { startSnapshotScheduler } from "./scheduler";
 import path from "path";
 import fs from "fs/promises";
 
@@ -31,6 +32,7 @@ async function loadCommands() {
 client.once(Events.ClientReady, async () => {
  logger.info("Bot logged in as %s", client.user!.tag);
  await loadCommands();
+ startSnapshotScheduler();
 });
 
 client.on(Events.InteractionCreate, async (interaction: Interaction) => {
